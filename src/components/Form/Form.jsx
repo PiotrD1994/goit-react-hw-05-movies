@@ -18,7 +18,9 @@ const Form =({searchMovies}) => {
         name="query"
         autoFocus
         value={query}
+        placeholder="Search movies"
         onChange={handleInputChange} />
+
             <button type="submit">Search</button>
         </form>
     )

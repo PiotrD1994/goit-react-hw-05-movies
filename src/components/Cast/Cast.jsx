@@ -18,22 +18,30 @@ useEffect(() => {
 
 return (
     <div>
-        {loading && <Loader/>}
+      {loading && <Loader />}
+      {actors.length > 0 ? (
         <ul>
-            {actors.map(({id, profile_path, original_name, name, character}) => (
-                <li key={id}>
-                <img width = "200px"
+          {actors.map(({ id, profile_path, original_name, name, character }) => (
+            <li key={id}>
+              <img
+                width="200px"
                 src={
-                    profile_path ? `https://image.tmdb.org/t/p/w500${profile_path}` : `https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg` 
+                  profile_path
+                    ? `https://image.tmdb.org/t/p/w500${profile_path}`
+                    : `https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg`
                 }
-                alt={original_name}/>
-                <p>{name}</p>
-                <p>Character: {character}</p>
-                </li>
-            ))}
+                alt={original_name}
+              />
+              <p>{name}</p>
+              <p>Character: {character}</p>
+            </li>
+          ))}
         </ul>
+      ) : (
+        <p>No cast information available.</p>
+      )}
     </div>
-)
-}
+  )
+      }
 
-export default Cast
+      export default Cast

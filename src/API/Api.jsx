@@ -4,7 +4,7 @@ axios.defaults.baseURL = 'https://api.themoviedb.org/3'
 const Params = {
     trending: 'trending/all/day',
     search: 'search/movie',
-    movieID: 'movie/',
+    movieId: 'movie/',
     reviews: '/reviews',
     credits: '/credits',
 }
@@ -19,19 +19,19 @@ export const searchMovieFetch = async query => {
  return response.data.results
 }
 
-export const movieIDFetch = async movieID => {
-    const response = await axios.get(`/${Params.movieID}${movieID}?api_key=${apiKey}&language=en-US`)
+export const movieIDFetch = async movieId => {
+    const response = await axios.get(`/${Params.movieId}${movieId}?api_key=${apiKey}&language=en-US`)
     return response.data
 }
 
-export const reviewFetch = async movieID => {
-    const response = await axios.get(`/${Params.movieID}${movieID}${Params.reviews}?${apiKey}&language=en-US`)
-    return response.data.results
+export const reviewFetch = async movieId => {
+    const response = await axios.get(`/${Params.movieId}${movieId}${Params.reviews}?api_key=${apiKey}&language=en-US`);
+    return response.data.results;
 }
 
-export const creditsFetch = async movieID => {
-    const response = await axios.get(`/${Params.movieID}${movieID}${Params.credits}?${apiKey}&language=en-US`)
-    return response.data.cast
+export const creditsFetch = async movieId => {
+    const response = await axios.get(`/${Params.movieId}${movieId}${Params.credits}?api_key=${apiKey}&language=en-US`);
+    return response.data.cast;
 }
 
 
