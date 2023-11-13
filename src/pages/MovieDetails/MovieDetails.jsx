@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link, Outlet, useLocation } from "react-router-dom";
 import { movieIDFetch } from "../../API/Api.jsx";
 import Loader from '../../components/Loader/Loader.jsx';
+import css from './MovieDetails.module.css'
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -39,10 +40,10 @@ const MovieDetails = () => {
   const { title, release_date, popularity, overview, genres, poster_path, original_title } = movieInfo;
 
   return (
-    <div>
+    <div className={css.container}>
       <Link to={location.state?.from ?? '/'}><button type="button">Return</button></Link>
       {loading && <Loader />}
-      <div>
+      <div className={css.container}>
         <img
           width="300px"
           src={
@@ -53,27 +54,27 @@ const MovieDetails = () => {
           alt={original_title}
         />
       </div>
-      <div>
-        <h1>
+      <div className={css.container}>
+        <h1 className={css.title}>
           {title} ({release_date.slice(0, 4)})
         </h1>
-        <p>User score: {popularity}</p>
+        <p className={css.text}>User score: {popularity}</p>
         <h2>Overview</h2>
-        <p>{overview}</p>
-        <h2>Genres</h2>
-        <ul>
+        <p className={css.text}>{overview}</p>
+        <h2 className={css.header2}>Genres</h2>
+        <ul className={css.list}>
           {genres.map((genre) => (
-            <li key={genre.id}>{genre.name}</li>
+            <li className={css.item} key={genre.id}>{genre.name}</li>
           ))}
         </ul>
       </div>
       <hr />
-      <h3>Additional information</h3>
-      <ul>
-        <li>
+      <h3 className={css.header3}>Additional information</h3>
+      <ul className={css.list}>
+        <li className={css.item}>
           <Link to="cast">Cast</Link>
         </li>
-        <li>
+        <li className={css.item}>
           <Link to="reviews">Reviews</Link>
         </li>
       </ul>

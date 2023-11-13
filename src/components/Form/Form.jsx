@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PropTypes from 'prop-types'
+import css from './Form.module.css'
 
 const Form =({searchMovies}) => {
     const [query, setQuery] = useState('')
@@ -12,8 +13,8 @@ const Form =({searchMovies}) => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-        <input
+        <form className={css.form} onSubmit={handleSubmit}>
+        <input className={css.input}
         type="text"
         name="query"
         autoFocus
@@ -21,7 +22,7 @@ const Form =({searchMovies}) => {
         placeholder="Search movies"
         onChange={handleInputChange} />
 
-            <button type="submit">Search</button>
+            <button className={css.button} type="submit">Search</button>
         </form>
     )
 }

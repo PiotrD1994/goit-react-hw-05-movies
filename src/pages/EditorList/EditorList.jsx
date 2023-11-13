@@ -1,13 +1,14 @@
 import { useLocation, Link } from "react-router-dom";
+import css from './EditorList.module.css'
 
 const EditorList = ({films}) => {
     const location = useLocation()
 
     return(
-   <ul>
+   <ul className={css.list}>
     {films.map(film => (
-        <li key={film.id}>
-    <Link to={`/movie/${film.id}`} state={{form: location}}>{film.title}</Link>
+        <li className={css.item} key={film.id}>
+    <Link to={`/movies/${film.id}`} state={{form: location}}>{film.title ? film.title : film.name}</Link>
         </li>
     ))}
    </ul>
