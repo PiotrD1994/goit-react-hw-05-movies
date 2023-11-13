@@ -1,0 +1,24 @@
+Nazwa projektu:
+
+goit-react-hw-05-movies
+
+Opis: 
+
+Prosta wyszukiwarka do przeglądania filmów.
+
+Uzycie:
+
+npm start
+
+Struktura:
+|-- src/
+|   |-- components/
+|   |-- pages/
+|   |-- API/
+|-- public/
+|-- package.json
+|-- README.md
+
+Technologie:
+
+React, React Router, CSS Modules, Java Script
