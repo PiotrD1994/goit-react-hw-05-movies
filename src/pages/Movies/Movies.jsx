@@ -11,7 +11,7 @@ const Movies = () => {
     const searchMovies = queryMovie => {
         setLoading(true)
         searchMovieFetch(queryMovie).then(searchResults => {setSearchFilms(searchResults)
-        setNoMoviesText(searchResults.legth === 0)}).catch(error => {console.log(error)}).finally(() => {setLoading(false)})
+        setNoMoviesText(searchResults.length === 0)}).catch(error => {console.log(error)}).finally(() => {setLoading(false)})
 
     }
 
